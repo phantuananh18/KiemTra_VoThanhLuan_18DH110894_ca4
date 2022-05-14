@@ -1,0 +1,15 @@
+<a style="cursor: pointer;"
+    class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+    routerLink="details/{{index}}" routerLinkActive="active">
+    <div>
+        <h4 class="list-group-item-heading">
+            {{ laptop.id }}
+        </h4>
+        <p class="list-group-item-text">
+            Name: {{ laptop.name }}
+        </p>
+        <p class="list-group-item-text">
+            Price: {{ laptop.price }} $
+        </p>
+    </div>
+</a>

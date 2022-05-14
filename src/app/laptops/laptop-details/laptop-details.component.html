@@ -1,0 +1,25 @@
+<div *ngIf="laptop != undefined; else noLap">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1>{{ laptop.id }}</h1>
+            <p>{{ laptop.name }}</p>
+            <p>{{ laptop.price }}</p>
+            <p>{{ laptop.description }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div ngbDropdown class="d-inline-block">
+                <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Manage</button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                    <a (click)="onEdit()" ngbDropdownItem>Edit Laptop</a>
+                    <a (click)="onDelete()" ngbDropdownItem>Delete Laptop</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<ng-template #noLap>
+    <h3>Choose a laptop to see information or create new</h3>
+</ng-template>

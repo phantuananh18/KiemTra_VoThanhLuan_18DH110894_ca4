@@ -1,0 +1,106 @@
+<div class="row">
+    <div class="col-sm-12">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-sm-12">
+                    <button 
+                        type="submit" 
+                        class="btn btn-success mr-1"
+                        [disabled]="!form.valid">
+                        Save
+                    </button>
+                    <button 
+                        type="button" 
+                        class="btn btn-danger"
+                        (click)="onCancel()">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="ID">ID</label>
+                        <input 
+                            type="text" 
+                            id="ID" 
+                            mdbInput mdbValidate
+                            formControlName="id"
+                            class="form-control"
+                            [ngClass]="{'is-invalid': getConfig('id')}"
+                            >
+                        <span *ngIf="getConfig('id')">
+                            <span *ngIf="form.get('id').errors?.required" class="text-danger">
+                                ID is required
+                            </span>
+                        </span>    
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            mdbInput mdbValidate
+                            formControlName="name"
+                            class="form-control"
+                            [ngClass]="{'is-invalid': getConfig('name')}"
+                            >
+                        <span *ngIf="getConfig('name')">
+                            <span *ngIf="form.get('name').errors?.required" class="text-danger">
+                                Name is required
+                            </span>
+                        </span>    
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input 
+                            type="number" 
+                            id="price" 
+                            mdbInput mdbValidate
+                            formControlName="price"
+                            class="form-control"
+                            [ngClass]="{'is-invalid': getConfig('price')}"
+                            >
+                        <span *ngIf="getConfig('price')">
+                            <span *ngIf="form.get('price').errors?.required" class="text-danger">
+                                Price is required
+                            </span>
+                            <span *ngIf="form.get('price').errors?.min" class="text-danger">
+                                Price is min at 0
+                            </span>
+                        </span>    
+                    </div>
+                </div>
+            </div>
+           
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea 
+                            type="text" 
+                            id="description" 
+                            class="form-control"
+                            formControlName="description" 
+                            rows="6"
+                            [ngClass]="{'is-invalid': getConfig('description')}"></textarea>
+                            <span *ngIf="getConfig('description')">
+                                <span *ngIf="form.get('description').errors?.required" class="text-danger">
+                                    Description is required
+                                </span>
+                            </span>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
